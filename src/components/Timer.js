@@ -1,6 +1,18 @@
 import React, {Component} from 'react';
 
 class Timer extends Component {
+    constructor() {
+        super(); // exception thrown here when not called
+        
+        var today = new Date();
+
+    this.state = {
+
+      currentDateTime: today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds()
+
+    }
+
+  }
     render(){
         return(
             <div className="timer--box">
@@ -12,7 +24,7 @@ class Timer extends Component {
                         <p>{this.props.project} </p>
                     </div>
                     <div className="timer--h2">
-                        <h2>00:00:00</h2>
+                        <h2>{ this.state.currentDateTime }</h2>
                     </div>
                     <div className="actions">
                         <span onClick={() => {this.props.onDelete(this.props.id)}} className="trash">Delete</span>
